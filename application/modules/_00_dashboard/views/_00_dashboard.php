@@ -41,7 +41,7 @@
         <!-- jQuery 3 -->
         <script src="<?php echo base_url() ?>assets/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-purple-light sidebar-mini">
         <div class="wrapper">
             <!-- header -->
             <?php $this->load->view('_00_dashboard/_header'); ?>
