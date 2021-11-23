@@ -37,6 +37,9 @@
 
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <!-- jQuery 3 -->
+        <script src="<?php echo base_url() ?>assets/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -48,14 +51,15 @@
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                
+
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>Dashboard <small>Control panel</small></h1>
+                    <!-- <h1>Dashboard <small>Control panel</small></h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li class="active">Dashboard</li>
-                    </ol>
+                    </ol> -->
+                    <h1><?php echo $_caption ?></h1>
                 </section>
 
                 <!-- Main content -->
@@ -84,7 +88,7 @@
         <!-- ./wrapper -->
 
         <!-- jQuery 3 -->
-        <script src="<?php echo base_url() ?>assets/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- <script src="<?php echo base_url() ?>assets/adminlte/bower_components/jquery/dist/jquery.min.js"></script> -->
         <!-- jQuery UI 1.11.4 -->
         <script src="<?php echo base_url() ?>assets/adminlte/bower_components/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
