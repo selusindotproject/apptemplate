@@ -41,13 +41,32 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
             <!-- header -->
-            <?php $this->load->view('welcome/_header'); ?>
+            <?php $this->load->view('_00_dashboard/_header'); ?>
 
             <!-- Left side column. contains the logo and sidebar -->
-            <?php $this->load->view('welcome/_sidebar'); ?>
+            <?php $this->load->view('_00_dashboard/_sidebar'); ?>
 
             <!-- Content Wrapper. Contains page content -->
-            <?php $this->load->view('welcome/_content'); ?>
+            <div class="content-wrapper">
+                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>Dashboard <small>Control panel</small></h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">Dashboard</li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+
+                    <?php $this->load->view($_view); ?>
+
+                </section>
+                <!-- /.content -->
+
+            </div>
             <!-- /.content-wrapper -->
 
             <footer class="main-footer">
@@ -56,7 +75,7 @@
             </footer>
 
             <!-- Control Sidebar -->
-            <?php $this->load->view('welcome/_control_sidebar'); ?>
+            <?php $this->load->view('_00_dashboard/_control_sidebar'); ?>
             <!-- /.control-sidebar -->
 
             <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
