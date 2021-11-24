@@ -9,7 +9,7 @@ class T90_groups_menus extends CI_Controller
     {
         parent::__construct();
         $this->load->model('T90_groups_menus_model');
-        $this->load->library('form_validation');        
+        $this->load->library('form_validation');
 		$this->load->library('datatables');
     }
 
@@ -80,23 +80,26 @@ class T90_groups_menus extends CI_Controller
 
     public function update($id)
     {
-        $row = $this->T90_groups_menus_model->get_by_id($id);
-        if ($row) {
+        // $row = $this->T90_groups_menus_model->get_by_id($id);
+        $dataGroups = $this->T90_groups_menus_model->getAllByIdGroups($id);
+        if ($dataGroups) {
             $data = array(
                 'button' => 'Simpan',
                 'action' => site_url('t90_groups_menus/update_action'),
-				'id' => set_value('id', $row->id),
-				'idgroups' => set_value('idgroups', $row->idgroups),
-				'idmenus' => set_value('idmenus', $row->idmenus),
-				'rights' => set_value('rights', $row->rights),
+				// 'id' => set_value('id', $row->id),
+				// 'idgroups' => set_value('idgroups', $row->idgroups),
+				// 'idmenus' => set_value('idmenus', $row->idmenus),
+				// 'rights' => set_value('rights', $row->rights),
+                'dataGroups' => $dataGroups,
 	    	);
             // $this->load->view('t90_groups_menus/t90_groups_menus_form', $data);
             $data['_view'] = 't90_groups_menus/t90_groups_menus_form';
-            $data['_caption'] = 'Groups_menus';
+            $data['_caption'] = 'Hak Akses';
             $this->load->view('_00_dashboard/_00_dashboard', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('t90_groups_menus'));
+            // redirect(site_url('t90_groups_menus'));
+            redirect(site_url('t86_groups'));
         }
     }
 

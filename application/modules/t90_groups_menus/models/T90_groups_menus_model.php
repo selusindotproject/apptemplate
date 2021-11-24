@@ -15,6 +15,20 @@ class T90_groups_menus_model extends CI_Model
         parent::__construct();
     }
 
+    // get all where idgroups = $id
+    function getAllByIdGroups($id)
+    {
+        $this->db->order_by('idmenus', 'asc');
+        $this->db->where('idgroups', $id);
+        $this->db->select($this->table.'.*');
+        $this->db->select('groups.description');
+        $this->db->select('menus.nama');
+        $this->db->from($this->table);
+        $this->db->join('t86_groups groups', 'groups.id = ' . $this->table . '.idgroups');
+        $this->db->join('t89_menus menus', 'menus.id = ' . $this->table . '.idmenus');
+        return $this->db->get()->result();
+    }
+
     // datatables
     function json() {
         $this->datatables->select('id,idgroups,idmenus,rights');
