@@ -63,7 +63,7 @@
                     </thead>
                 </table>
             </div>
-        </div>	
+        </div>
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
@@ -124,7 +124,7 @@
                             "className" : "text-center"
                         }
                     ],
-                    order: [[1, 'asc']],
+                    order: [[2, 'asc']],
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();
                         var page = info.iPage;
