@@ -37,13 +37,18 @@
             			<td>&nbsp;</td>
                     <?php } else { ?>
             			<td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, lang('index_active_link')) : anchor("auth/activate/". $user->id, lang('index_inactive_link'));?></td>
-            			<td><?php echo anchor("auth/edit_user/".$user->id, 'Ubah') . ' | ' .  anchor("t89_users_menus/update/".$user->id, 'Hak Akses');?></td>
+            			<td><?php echo anchor("auth/edit_user/".$user->id, 'Ubah');?></td>
                     <?php } ?>
                 </tr>
                 <?php endforeach;?>
             </tbody>
 		</table>
 		<br />
-		<p><?php echo anchor('auth/create_user', lang('index_create_user_link'), 'class="btn btn-primary"')?> <?php echo anchor('auth/create_group', lang('index_create_group_link'), 'class="btn btn-primary"')?> <a href="<?php echo site_url() ?>" class="btn btn-default">Cancel</a></p>
+		<p>
+			<?php echo anchor('auth/create_user', lang('index_create_user_link'), 'class="btn btn-primary"')?>
+			<?php echo anchor('auth/create_group', lang('index_create_group_link'), 'class="btn btn-primary"')?>
+			<a href="<?php echo site_url('t86_groups') ?>" class="btn btn-primary">Group List</a>
+			<a href="<?php echo site_url() ?>" class="btn btn-default">Cancel</a>
+		</p>
 	</div>
 </div>

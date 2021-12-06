@@ -745,6 +745,9 @@ class Auth extends CI_Controller
 			$new_group_id = $this->ion_auth->create_group($this->input->post('group_name'), $this->input->post('description'));
 			if ($new_group_id)
 			{
+				// create hak akses
+				createHakAkses($new_group_id);
+
 				// check to see if we are creating the group
 				// redirect them back to the admin page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());

@@ -4,6 +4,33 @@
 
 
 /**
+ * create hak akses for new groups
+ */
+function createHakAkses($idgroups)
+{
+    // set variable $this
+    $ci =& get_instance();
+
+    /**
+     * collect data menus
+     */
+    $q = "select * from " . TABLE_MENU . " where nama <> '#'";
+    $dataMenu = $ci->db->query($q)->result();
+
+    foreach($dataMenu as $row) {
+        $data = array(
+            'idgroups' => $idgroups,
+            'idmenus' => $row->id,
+            'rights' => 0,
+        );
+        $ci->db->insert(TABLE_HAKAKSES, $data);
+    }
+}
+
+
+
+
+/**
  * get hak akses berdasarkan idusers = user_id dan idmenus
  */
 function getHakAkses($modulName)
