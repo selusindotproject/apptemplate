@@ -1,5 +1,5 @@
 <div class="row" style="margin-bottom: 10px">
-	<div class="col-md-4 text-center">
+	<div class="col-md-12 text-center">
 		<div style="margin-top: 4px"  id="message">
 			<div id="infoMessage"><?php echo $message;?></div>
 		</div>
@@ -15,8 +15,7 @@
 			</style>
 			<thead>
 				<tr>
-					<th>Nama</th>
-					<!-- <th>Username</th> -->
+					<th>Name</th>
 					<th>Email</th>
 					<th>Group</th>
 					<th>Status</th>
@@ -27,7 +26,6 @@
                 <?php foreach ($users as $user):?>
                 <tr>
                     <td><?php echo htmlspecialchars($user->first_name,ENT_QUOTES,'UTF-8');?></td>
-                    <!-- <td><?php echo htmlspecialchars($user->username,ENT_QUOTES,'UTF-8');?></td> -->
 					<td><?php echo htmlspecialchars($user->email,ENT_QUOTES,'UTF-8');?></td>
 					<td>
 						<?php foreach ($user->groups as $group):?>
@@ -46,6 +44,6 @@
             </tbody>
 		</table>
 		<br />
-		<p><?php echo anchor('auth/create_user', lang('index_create_user_link'), 'class="btn btn-primary"')?> <?php echo anchor('auth/create_group', lang('index_create_group_link'), 'class="btn btn-primary"')?></p>
+		<p><?php echo anchor('auth/create_user', lang('index_create_user_link'), 'class="btn btn-primary"')?> <?php echo anchor('auth/create_group', lang('index_create_group_link'), 'class="btn btn-primary"')?> <a href="<?php echo site_url() ?>" class="btn btn-default">Cancel</a></p>
 	</div>
 </div>

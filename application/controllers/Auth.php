@@ -845,7 +845,10 @@ class Auth extends CI_Controller
 			'value' => $this->form_validation->set_value('group_description', $group->description),
 		];
 
-		$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
+		// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
+		$this->data['_view'] = 'auth' . DIRECTORY_SEPARATOR . 'edit_group';
+		$this->data['_caption'] = 'Groups';
+		$this->load->view('_00_dashboard/_00_dashboard', $this->data);
 	}
 
 	/**
