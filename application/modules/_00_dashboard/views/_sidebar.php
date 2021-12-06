@@ -41,6 +41,7 @@
                     case 't86_groups':
                     // case 't89_menus':
                     case 't90_groups_menus':
+                    case 't95_company':
                         echo 'active';
                         break;
                 }
@@ -56,6 +57,7 @@
                     <li <?php echo $this->uri->segment(1) == 'auth' ? 'class="active"' : '' ?>><a href="<?php echo site_url() ?>auth"><i class="fa fa-circle text-aqua"></i> Users</a></li>
                     <!-- <li <?php echo ($this->uri->segment(1) == 't86_groups' or $this->uri->segment(1) == 't90_groups_menus') ? 'class="active"' : '' ?>><a href="<?php echo site_url() ?>t86_groups"><i class="fa fa-circle text-aqua"></i> Groups</a></li> -->
                     <!-- <li <?php echo $this->uri->segment(1) == 't89_menus' ? 'class="active"' : '' ?>><a href="<?php echo site_url() ?>t89_menus"><i class="fa fa-circle text-aqua"></i> Menu</a></li> -->
+                    <li <?php echo $this->uri->segment(1) == 't95_company' ? 'class="active"' : '' ?>><a href="<?php echo site_url() ?>t95_company"><i class="fa fa-circle text-aqua"></i> Company</a></li>
                 </ul>
             </li>
 
