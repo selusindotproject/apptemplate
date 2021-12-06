@@ -18,7 +18,8 @@ class T90_groups_menus_model extends CI_Model
     // get all where idgroups = $id
     function getAllByIdGroups($id)
     {
-        $this->db->order_by('idmenus', 'asc');
+        // $this->db->order_by('idmenus', 'asc');
+        $this->db->order_by('menus.nama', 'asc');
         $this->db->where('idgroups', $id);
         $this->db->select($this->table.'.*');
         $this->db->select('groups.description');

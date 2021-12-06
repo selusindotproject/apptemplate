@@ -59,7 +59,7 @@ class Auth extends CI_Controller
 
 			$this->data['_view'] = 'auth' . DIRECTORY_SEPARATOR . 'index';
 			// $this->data['_view'] = '_content';
-            $this->data['_caption'] = 'User';
+            $this->data['_caption'] = 'Users';
             $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 		}
 	}

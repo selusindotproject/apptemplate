@@ -39,8 +39,8 @@
                 switch ($this->uri->segment(1)) {
                     case 'auth':
                     case 't86_groups':
-                    case 't89_menus':
-                    case 't90_groups_menu':
+                    // case 't89_menus':
+                    case 't90_groups_menus':
                         echo 'active';
                         break;
                 }
@@ -54,8 +54,8 @@
                 </a>
                 <ul class="treeview-menu">
                     <li <?php echo $this->uri->segment(1) == 'auth' ? 'class="active"' : '' ?>><a href="<?php echo site_url() ?>auth"><i class="fa fa-circle text-aqua"></i> Users</a></li>
-                    <li <?php echo ($this->uri->segment(1) == 't86_groups' or $this->uri->segment(1) == 't90_groups_menus') ? 'class="active"' : '' ?>><a href="<?php echo site_url() ?>t86_groups"><i class="fa fa-circle text-aqua"></i> Groups</a></li>
-                    <li <?php echo $this->uri->segment(1) == 't89_menus' ? 'class="active"' : '' ?>><a href="<?php echo site_url() ?>t89_menus"><i class="fa fa-circle text-aqua"></i> Menu</a></li>
+                    <!-- <li <?php echo ($this->uri->segment(1) == 't86_groups' or $this->uri->segment(1) == 't90_groups_menus') ? 'class="active"' : '' ?>><a href="<?php echo site_url() ?>t86_groups"><i class="fa fa-circle text-aqua"></i> Groups</a></li> -->
+                    <!-- <li <?php echo $this->uri->segment(1) == 't89_menus' ? 'class="active"' : '' ?>><a href="<?php echo site_url() ?>t89_menus"><i class="fa fa-circle text-aqua"></i> Menu</a></li> -->
                 </ul>
             </li>
 
