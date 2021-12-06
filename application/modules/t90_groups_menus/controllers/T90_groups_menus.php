@@ -13,6 +13,23 @@ class T90_groups_menus extends CI_Controller
 		$this->load->library('datatables');
     }
 
+    public function update_action2()
+    {
+        $this->_rules();
+        if ($this->form_validation->run() == FALSE) {
+            $this->update($this->input->post('id', TRUE));
+        } else {
+            $data = array(
+				'idgroups' => $this->input->post('idgroups',TRUE),
+				'idmenus' => $this->input->post('idmenus',TRUE),
+				'rights' => $this->input->post('rights',TRUE),
+	    	);
+            $this->T90_groups_menus_model->update($this->input->post('id', TRUE), $data);
+            $this->session->set_flashdata('message', 'Update Record Success');
+            redirect(site_url('t90_groups_menus'));
+        }
+    }
+
     public function update2($id)
     {
         // $row = $this->T90_groups_menus_model->get_by_id($id);
@@ -20,7 +37,7 @@ class T90_groups_menus extends CI_Controller
         if ($dataGroups) {
             $data = array(
                 'button' => 'Simpan',
-                'action' => site_url('t90_groups_menus/update_action'),
+                'action' => site_url('t90_groups_menus/update_action2'),
 				// 'id' => set_value('id', $row->id),
 				// 'idgroups' => set_value('idgroups', $row->idgroups),
 				// 'idmenus' => set_value('idmenus', $row->idmenus),
@@ -35,7 +52,7 @@ class T90_groups_menus extends CI_Controller
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             // redirect(site_url('t90_groups_menus'));
-            redirect(site_url('t86_groups'));
+            // redirect(site_url('t86_groups'));
         }
     }
 

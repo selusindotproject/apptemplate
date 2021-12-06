@@ -19,9 +19,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label" for="varchar">&nbsp;</label>
+                <label class="col-sm-2 control-label" for="varchar">Access Rights:</label>
                 <div class="col-sm-3">
-                    <a href="#" onclick="showModal(<?php echo $this->uri->segment(3) ?>)">Access Rights</a>
+                    <a href="#" onclick="showModal(<?php echo $this->uri->segment(3) ?>)" class="btn btn-default"><i>please click this button</i></a>
                 </div>
             </div>
         </div>

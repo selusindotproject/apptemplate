@@ -156,7 +156,8 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary"><?php echo $button ?></button>
-                    <a href="<?php echo site_url('t86_groups') ?>" class="btn btn-default">Batal</a>
+                    <!-- <a href="<?php echo site_url('t86_groups') ?>" class="btn btn-default">Batalx</a> -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
 
 				<!-- <input type="hidden" name="id" value="<?php echo $id; ?>" /> -->
