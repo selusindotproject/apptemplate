@@ -13,6 +13,32 @@ class T90_groups_menus extends CI_Controller
 		$this->load->library('datatables');
     }
 
+    public function update2($id)
+    {
+        // $row = $this->T90_groups_menus_model->get_by_id($id);
+        $dataGroups = $this->T90_groups_menus_model->getAllByIdGroups($id);
+        if ($dataGroups) {
+            $data = array(
+                'button' => 'Simpan',
+                'action' => site_url('t90_groups_menus/update_action'),
+				// 'id' => set_value('id', $row->id),
+				// 'idgroups' => set_value('idgroups', $row->idgroups),
+				// 'idmenus' => set_value('idmenus', $row->idmenus),
+				// 'rights' => set_value('rights', $row->rights),
+                'dataGroups' => $dataGroups,
+	    	);
+            // $this->load->view('t90_groups_menus/t90_groups_menus_form', $data);
+            // $data['_view'] = 't90_groups_menus/t90_groups_menus_form2';
+            $data['_caption'] = 'Access Rights';
+            // $this->load->view('_00_dashboard/_00_dashboard', $data);
+            $this->load->view('t90_groups_menus/t90_groups_menus_form2', $data);
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            // redirect(site_url('t90_groups_menus'));
+            redirect(site_url('t86_groups'));
+        }
+    }
+
     public function index()
     {
         // $this->load->view('t90_groups_menus/t90_groups_menus_list');
