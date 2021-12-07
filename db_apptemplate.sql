@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 07, 2021 at 09:44 AM
+-- Generation Time: Dec 07, 2021 at 04:07 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -54,7 +54,8 @@ CREATE TABLE `t85_users` (
 --
 
 INSERT INTO `t85_users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$10$BEV7Z.F3Q5/sTzuQzerJgOzvLf0dN9Gq4UetlJ1M5rj39wutBs9Gi', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1638856163, 1, 'Admin', 'istrator', 'ADMIN', '0');
+(1, '127.0.0.1', 'administrator', '$2y$10$NyBZ/QUDi5AMDQGZbPRxm.JldUU8EyQFeGwMOuVUdktQIVuBRgLEu', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1638882252, 1, 'Admin', 'istrator', 'ADMIN', '0'),
+(2, '::1', NULL, '$2y$10$qegOdLXRjIxKIQFEzJI9euGdMLf1MSJExKtaF8cMQIQLJM/wkvgP6', 'opr@opr.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1638869635, 1638889367, 1, 'Operator', '-', '-', '-');
 
 -- --------------------------------------------------------
 
@@ -93,8 +94,9 @@ CREATE TABLE `t87_users_groups` (
 --
 
 INSERT INTO `t87_users_groups` (`id`, `user_id`, `group_id`) VALUES
-(7, 1, 1),
-(8, 1, 2);
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -121,6 +123,15 @@ CREATE TABLE `t89_menus` (
   `nama` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `t89_menus`
+--
+
+INSERT INTO `t89_menus` (`id`, `kode`, `nama`) VALUES
+(1, 'menus', '01. Master - Menu'),
+(2, 'groups_menus', '02. Master - Hak Akses'),
+(3, 'company', '03. Master - Company');
+
 -- --------------------------------------------------------
 
 --
@@ -134,6 +145,15 @@ CREATE TABLE `t90_groups_menus` (
   `rights` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `t90_groups_menus`
+--
+
+INSERT INTO `t90_groups_menus` (`id`, `idgroups`, `idmenus`, `rights`) VALUES
+(1, 1, 1, 71),
+(2, 1, 2, 71),
+(3, 1, 3, 20);
+
 -- --------------------------------------------------------
 
 --
@@ -146,6 +166,13 @@ CREATE TABLE `t95_company` (
   `alamat` varchar(100) NOT NULL,
   `kota` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t95_company`
+--
+
+INSERT INTO `t95_company` (`id`, `nama`, `alamat`, `kota`) VALUES
+(1, 'COMPANY', 'ALAMAT', 'KOTA');
 
 --
 -- Indexes for dumped tables
@@ -208,7 +235,7 @@ ALTER TABLE `t95_company`
 -- AUTO_INCREMENT for table `t85_users`
 --
 ALTER TABLE `t85_users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `t86_groups`
@@ -220,31 +247,31 @@ ALTER TABLE `t86_groups`
 -- AUTO_INCREMENT for table `t87_users_groups`
 --
 ALTER TABLE `t87_users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `t88_login_attempts`
 --
 ALTER TABLE `t88_login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `t89_menus`
 --
 ALTER TABLE `t89_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `t90_groups_menus`
 --
 ALTER TABLE `t90_groups_menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `t95_company`
 --
 ALTER TABLE `t95_company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
