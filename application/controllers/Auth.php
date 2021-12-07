@@ -56,10 +56,8 @@ class Auth extends CI_Controller
 			}
 
 			// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
-
 			$this->data['_view'] = 'auth' . DIRECTORY_SEPARATOR . 'index';
-			// $this->data['_view'] = '_content';
-            $this->data['_caption'] = 'Users';
+            $this->data['_caption'] = '';
             $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 		}
 	}
@@ -745,9 +743,6 @@ class Auth extends CI_Controller
 			$new_group_id = $this->ion_auth->create_group($this->input->post('group_name'), $this->input->post('description'));
 			if ($new_group_id)
 			{
-				// create hak akses
-				createHakAkses($new_group_id);
-
 				// check to see if we are creating the group
 				// redirect them back to the admin page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
@@ -848,10 +843,7 @@ class Auth extends CI_Controller
 			'value' => $this->form_validation->set_value('group_description', $group->description),
 		];
 
-		// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
-		$this->data['_view'] = 'auth' . DIRECTORY_SEPARATOR . 'edit_group';
-		$this->data['_caption'] = 'Groups';
-		$this->load->view('_00_dashboard/_00_dashboard', $this->data);
+		$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
 	}
 
 	/**
