@@ -56,15 +56,15 @@
                     <thead>
                         <tr>
                             <th>No</th>
-							<th>Idgroups</th>
-							<th>Idmenus</th>
+							<th>Groups</th>
+							<th>Menu</th>
 							<th>Rights</th>
 							<th>Action</th>
                         </tr>
                     </thead>
                 </table>
             </div>
-        </div>	
+        </div>
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
@@ -108,8 +108,8 @@
                     serverSide: true,
                     ajax: {"url": "t90_groups_menus/json", "type": "POST",
                         "data": function(data) {
-                            data.idgroups = $('#idgroups').val();
-                            data.idmenus = $('#idmenus').val();
+                            data.name = $('#name').val();
+                            data.nama = $('#nama').val();
                             data.rights = $('#rights').val();
                         }
                     },
@@ -118,8 +118,8 @@
                             "data": "id",
                             "orderable": false
                         },
-						{"data": "idgroups"},
-						{"data": "idmenus"},
+						{"data": "name"},
+						{"data": "nama"},
 						{"data": "rights"},
                         {
                             "data" : "action",
@@ -127,7 +127,7 @@
                             "className" : "text-center"
                         }
                     ],
-                    order: [[1, 'asc']],
+                    order: [[2, 'asc'], [3, 'asc']],
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();
                         var page = info.iPage;
@@ -138,7 +138,7 @@
                 });
 
                 $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
-                const aName = ['', 'idgroups', 'idmenus', 'rights', ''];
+                const aName = ['', 'name', 'nama', 'rights', ''];
                 $('#mytable thead tr:eq(1) th').each( function (i) {
                     var title = $(this).text();
                     if (aName[i] == '') {

@@ -29,9 +29,9 @@
     <body> -->
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
-                <!-- <h2 style="margin-top:0px">T85_users List</h2> -->
+                <!-- <h2 style="margin-top:0px">T90_groups_menus List</h2> -->
                 <?php if ($hakAkses['tambah']) { ?>
-                <?php echo anchor(site_url('t85_users/create'), 'Tambah', 'class="btn btn-primary"'); ?>
+                <?php echo anchor(site_url('t90_groups_menus/create'), 'Tambah', 'class="btn btn-primary"'); ?>
                 <?php } ?>
             </div>
             <div class="col-md-4 text-center">
@@ -40,9 +40,9 @@
                 </div>
             </div>
             <div class="col-md-4 text-right">
-                <!-- <?php echo anchor(site_url('t85_users/create'), 'Tambah', 'class="btn btn-primary"'); ?> -->
-				<?php echo anchor(site_url('t85_users/excel'), 'Excel', 'class="btn btn-primary"'); ?>
-				<?php echo anchor(site_url('t85_users/word'), 'Word', 'class="btn btn-primary"'); ?>
+                <!-- <?php echo anchor(site_url('t90_groups_menus/create'), 'Tambah', 'class="btn btn-primary"'); ?> -->
+				<?php echo anchor(site_url('t90_groups_menus/excel'), 'Excel', 'class="btn btn-primary"'); ?>
+				<?php echo anchor(site_url('t90_groups_menus/word'), 'Word', 'class="btn btn-primary"'); ?>
 		    </div>
         </div>
         <div class="box">
@@ -56,24 +56,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-							<th>Ip Address</th>
-							<th>Username</th>
-							<th>Password</th>
-							<th>Email</th>
-							<th>Activation Selector</th>
-							<th>Activation Code</th>
-							<th>Forgotten Password Selector</th>
-							<th>Forgotten Password Code</th>
-							<th>Forgotten Password Time</th>
-							<th>Remember Selector</th>
-							<th>Remember Code</th>
-							<th>Created On</th>
-							<th>Last Login</th>
-							<th>Active</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Company</th>
-							<th>Phone</th>
+							<th>Idgroups</th>
+							<th>Idmenus</th>
+							<th>Rights</th>
 							<th>Action</th>
                         </tr>
                     </thead>
@@ -121,26 +106,11 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "t85_users/json", "type": "POST",
+                    ajax: {"url": "t90_groups_menus/json", "type": "POST",
                         "data": function(data) {
-                            data.ip_address = $('#ip_address').val();
-                            data.username = $('#username').val();
-                            data.password = $('#password').val();
-                            data.email = $('#email').val();
-                            data.activation_selector = $('#activation_selector').val();
-                            data.activation_code = $('#activation_code').val();
-                            data.forgotten_password_selector = $('#forgotten_password_selector').val();
-                            data.forgotten_password_code = $('#forgotten_password_code').val();
-                            data.forgotten_password_time = $('#forgotten_password_time').val();
-                            data.remember_selector = $('#remember_selector').val();
-                            data.remember_code = $('#remember_code').val();
-                            data.created_on = $('#created_on').val();
-                            data.last_login = $('#last_login').val();
-                            data.active = $('#active').val();
-                            data.first_name = $('#first_name').val();
-                            data.last_name = $('#last_name').val();
-                            data.company = $('#company').val();
-                            data.phone = $('#phone').val();
+                            data.idgroups = $('#idgroups').val();
+                            data.idmenus = $('#idmenus').val();
+                            data.rights = $('#rights').val();
                         }
                     },
                     columns: [
@@ -148,24 +118,9 @@
                             "data": "id",
                             "orderable": false
                         },
-						{"data": "ip_address"},
-						{"data": "username"},
-						{"data": "password"},
-						{"data": "email"},
-						{"data": "activation_selector"},
-						{"data": "activation_code"},
-						{"data": "forgotten_password_selector"},
-						{"data": "forgotten_password_code"},
-						{"data": "forgotten_password_time"},
-						{"data": "remember_selector"},
-						{"data": "remember_code"},
-						{"data": "created_on"},
-						{"data": "last_login"},
-						{"data": "active"},
-						{"data": "first_name"},
-						{"data": "last_name"},
-						{"data": "company"},
-						{"data": "phone"},
+						{"data": "idgroups"},
+						{"data": "idmenus"},
+						{"data": "rights"},
                         {
                             "data" : "action",
                             "orderable": false,
@@ -183,7 +138,7 @@
                 });
 
                 $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
-                const aName = ['', 'ip_address', 'username', 'password', 'email', 'activation_selector', 'activation_code', 'forgotten_password_selector', 'forgotten_password_code', 'forgotten_password_time', 'remember_selector', 'remember_code', 'created_on', 'last_login', 'active', 'first_name', 'last_name', 'company', 'phone', ''];
+                const aName = ['', 'idgroups', 'idmenus', 'rights', ''];
                 $('#mytable thead tr:eq(1) th').each( function (i) {
                     var title = $(this).text();
                     if (aName[i] == '') {
