@@ -434,7 +434,10 @@ class Auth extends CI_Controller
 			$this->data['user'] = $this->ion_auth->user($id)->row();
 			$this->data['identity'] = $this->config->item('identity', 'ion_auth');
 
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'deactivate_user', $this->data);
+			// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'deactivate_user', $this->data);
+			$this->data['_view'] = 'auth' . DIRECTORY_SEPARATOR . 'deactivate_user';
+            $this->data['_caption'] = lang('deactivate_heading');
+            $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 		}
 		else
 		{
