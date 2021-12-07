@@ -780,7 +780,10 @@ class Auth extends CI_Controller
 			'value' => $this->form_validation->set_value('description'),
 		];
 
-		$this->_render_page('auth/create_group', $this->data);
+		// $this->_render_page('auth/create_group', $this->data);
+		$this->data['_view'] = 'auth' . DIRECTORY_SEPARATOR . 'create_group';
+		$this->data['_caption'] = lang('create_group_heading');
+		$this->load->view('_00_dashboard/_00_dashboard', $this->data);
 
 	}
 
