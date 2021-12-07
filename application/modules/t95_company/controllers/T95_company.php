@@ -11,6 +11,11 @@ class T95_company extends CI_Controller
         $this->load->model('T95_company_model');
         $this->load->library('form_validation');
 		$this->load->library('datatables');
+        if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			show_error('You must be an administrator to view this page.');
+		}
     }
 
     public function index()

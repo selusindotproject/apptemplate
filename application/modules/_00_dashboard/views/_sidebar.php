@@ -38,9 +38,6 @@
                 <?php
                 switch ($this->uri->segment(1)) {
                     case 'auth':
-                    case 't86_groups':
-                    // case 't89_menus':
-                    case 't90_groups_menus':
                     case 't95_company':
                         echo 'active';
                         break;
