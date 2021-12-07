@@ -567,7 +567,10 @@ class Auth extends CI_Controller
 				'value' => $this->form_validation->set_value('password_confirm'),
 			];
 
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
+			// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
+			$this->data['_view'] = 'auth' . DIRECTORY_SEPARATOR . 'create_user';
+            $this->data['_caption'] = lang('create_user_heading');
+            $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 		}
 	}
 	/**
