@@ -722,7 +722,7 @@ class Auth extends CI_Controller
 
 		// $this->_render_page('auth/edit_user', $this->data);
 		$this->data['_view'] = 'auth' . DIRECTORY_SEPARATOR . 'edit_user';
-		$this->data['_caption'] = '';
+		$this->data['_caption'] = lang('edit_user_heading');
 		$this->load->view('_00_dashboard/_00_dashboard', $this->data);
 	}
 
