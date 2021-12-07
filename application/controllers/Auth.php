@@ -179,7 +179,10 @@ class Auth extends CI_Controller
 			];
 
 			// render
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'change_password', $this->data);
+			// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'change_password', $this->data);
+			$this->data['_view'] = 'auth' . DIRECTORY_SEPARATOR . 'change_password';
+            $this->data['_caption'] = lang('change_password_heading');
+            $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 		}
 		else
 		{
