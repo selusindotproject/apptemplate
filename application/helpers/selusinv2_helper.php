@@ -3,6 +3,41 @@
 
 
 
+function numDB($value)
+{
+    // $value = substr($value, 4); // mengambil hanya angka, tanpa mengambil 'Rp.'
+    $value = str_replace('.','', $value); // menghilangkan titik
+	$value = str_replace(',','.', $value); // mengganti koma dengan titik
+    return $value;
+}
+
+
+
+
+/**
+ * mengubah format tanggal
+ * menjadi format dd-mm-yyyy
+ */
+function dateIndo($value)
+{
+    return date_format(date_create($value), 'd-m-Y');
+}
+
+
+
+
+/**
+ * mengubah format tanggal
+ * menjadi format yyyy-mm-dd
+ */
+function dateMysql($value)
+{
+    return date('Y-m-d', strtotime(str_replace('/', '-', $value)));
+}
+
+
+
+
 /**
  * create hak akses for new groups
  */
